@@ -66,10 +66,19 @@ body, #input, #preview, .spliter { height: 100%; margin: 0; }
 
 footer {
   background-color: rgba(219, 219, 219, 0.62);
+  color: rgb(164, 164, 164);
   position: absolute;
   bottom: 0;
   height: 3%;
   width: 100%;
+  font-size: 3.5vh;
+  line-height: 3.5vh;
+}
+
+footer .version {
+  font-size: 0.5em;
+  position: fixed;
+  left: 1%;
 }
 
 @font-face {
