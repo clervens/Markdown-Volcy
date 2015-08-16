@@ -3,7 +3,10 @@
   "description": "Volcy, Clervens first Electron app.",
   "author": "Volcy, Clervens <clervens.volcy@gmail.com> (http://cvolcy.com/)",
   "version": "0.0.1",
-  "license": "MIT",
+  "licenses": [{
+    "type": "Apache-2.0",
+    "url": "http://www.apache.org/licenses/LICENSE-2.0"
+  }],
   "main": "main.js",
   "scripts": {
     "start": "electron .",

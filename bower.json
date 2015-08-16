@@ -6,7 +6,10 @@
     "Volcy, Clervens <clervens.volcy@gmail.com> (http://cvolcy.com/)"
   ],
   "main": "main.js",
-  "license": "MIT",
+  "licenses": [{
+    "type": "Apache-2.0",
+    "url": "http://www.apache.org/licenses/LICENSE-2.0"
+  }],
   "ignore": [
     "**/.*",
     "node_modules",
