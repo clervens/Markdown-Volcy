@@ -1,0 +1,20 @@
+{
+  "name": "Markdown-Volcy",
+  "description": "Volcy, Clervens first Electron app.",
+  "version": "0.0.0",
+  "authors": [
+    "Volcy, Clervens <clervens.volcy@gmail.com> (http://cvolcy.com/)"
+  ],
+  "main": "main.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "codemirror": "~5.5.0"
+  }
+}

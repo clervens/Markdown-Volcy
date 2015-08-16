@@ -1,0 +1,20 @@
+{
+  "name": "Markdown-Volcy",
+  "description": "Volcy, Clervens first Electron app.",
+  "author": "Volcy, Clervens <clervens.volcy@gmail.com> (http://cvolcy.com/)",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-packager . Markdown-Volcy --platform=darwin --arch=x64 --version=0.30.4"
+  },
+  "dependencies": {
+    "jquery": "^2.1.4",
+    "markdown-js": "0.0.3"
+  },
+  "devDependencies": {
+    "electron-packager": "^5.0.1",
+    "electron-prebuilt": "^0.30.4"
+  }
+}
