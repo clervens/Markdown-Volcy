@@ -61,10 +61,6 @@ $(function(){
     }
   });
 
-  // Enable save menuItem
-
-  Menu.getApplicationMenu().items[1].submenu.items[0].enabled = true;
-
   require('ipc').on('file-save', function(args) {
     dialog.showSaveDialog(remote.getCurrentWindow(), {
       title: "save markdown",
