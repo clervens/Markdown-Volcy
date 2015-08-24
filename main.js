@@ -1,7 +1,8 @@
 var app = require('app');
 var BrowserWindow = require('browser-window');
 var ipc = require('ipc');
-
+var storage = require(__dirname+'/lib/storage/storage');
+var environment = storage.get('environment');
 require('crash-reporter').start();
 
 var mainWindow = null;
@@ -16,7 +17,8 @@ app.on('window-all-closed', function(){
 app.on('ready', function(){
   mainWindow = new BrowserWindow({width: 800, height: 600});
   mainWindow.loadUrl('file://'+ __dirname + '/index.html');
-  mainWindow.openDevTools();
+  if (environment == 'development')
+    mainWindow.openDevTools();
 
   var template = require(__dirname+'/lib/menus/main_menu')(app, BrowserWindow, mainWindow);
 
