@@ -1,7 +1,7 @@
 var environment = storage.get('environment');
 var fs = require('fs');
 var path = require('path');
-var locales_folder = path.join(path.dirname(require.main.filename), 'config', 'locales');
+var locales_folder = path.join(app_root, 'config', 'locales');
 var locale = storage.get('settings').locale;
 var data;
 

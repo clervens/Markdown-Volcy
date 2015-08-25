@@ -6,8 +6,8 @@ var template = function(app, BrowserWindow, mainWindow) {
   return [{
     label: i18n.t('app'),
     submenu: [
-      { label: i18n.t('app.preferences'), enabled: false },
       { label: i18n.t('app.about'), selector: "orderFrontStandardAboutPanel:" },
+      { label: i18n.t('app.preferences'), enabled: false },
       { type: "separator" },
       { label: i18n.t('app.quit'), accelerator: "CmdOrCtrl+Q", click: function() { app.quit(); }}]
     }, {
