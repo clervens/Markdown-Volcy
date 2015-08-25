@@ -1,0 +1,12 @@
+{
+  "app.name": "Application",
+  "app.preferences": "Préférences",
+  "app.about": "À propos",
+  "app.quit": "Quitter",
+  "file": "Fichier",
+  "file.new": "Nouveau",
+  "file.open": "Ouvrir",
+  "file.close": "Fermer",
+
+  "help": "Help"
+}

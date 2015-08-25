@@ -1,7 +1,8 @@
 var app = require('app');
 var BrowserWindow = require('browser-window');
 var ipc = require('ipc');
-var storage = require(__dirname+'/lib/storage/storage');
+global.storage = require(__dirname+'/lib/storage/storage');
+global.i18n = require(__dirname+'/lib/i18n');
 var environment = storage.get('environment');
 require('crash-reporter').start();
 
