@@ -19,8 +19,6 @@ app.on('window-all-closed', function(){
 app.on('ready', function(){
   mainWindow = new BrowserWindow({width: 800, height: 600});
   mainWindow.loadUrl('file://'+ app_root +'/views/index.html');
-  if (environment == 'development')
-    mainWindow.openDevTools();
 
   var template = require(app_root+'/lib/menus/main_menu')(app, BrowserWindow, mainWindow);
 
