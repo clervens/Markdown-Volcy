@@ -129,4 +129,21 @@ ipc.on('file-save', saveFile)
   if(storage.get('environment') == 'development')
     prefs.openDevTools();
 })
+.on('print', function(){
+  remote.getCurrentWindow().webContents.printToPDF({}, function(error, data) {
+    if (error) throw error;
+    dialog.showSaveDialog(remote.getCurrentWindow(), {
+        title: "Print to PDF",
+        filters: [
+          { name: 'PDF', extensions: ['pdf'] }
+        ]
+      }, function(filePath){
+        fs.writeFile(filePath, data, function(error) {
+          if (error)
+            throw error;
+          console.log("Write PDF successfully.");
+      });
+    });
+  });
+})
 .on('test', function(){remote.getCurrentWindow().loadUrl('file://'+ __dirname + '/test.html');})
