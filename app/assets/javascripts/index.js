@@ -122,10 +122,11 @@ ipc.on('file-save', saveFile)
   prefs = new BrowserWindow({
     width: 400,
     height: 300,
-    resizable: true,
+    resizable: (storage.get('environment') == 'development'),
     frame: true
   });
   prefs.loadUrl('file://'+__dirname+'/preferences.html');
-  prefs.openDevTools();
+  if(storage.get('environment') == 'development')
+    prefs.openDevTools();
 })
 .on('test', function(){remote.getCurrentWindow().loadUrl('file://'+ __dirname + '/test.html');})

@@ -12,8 +12,9 @@ function load() {
  if (!fs.existsSync(dataFilePath)) {
  data = {
   environment: "production",
-  settings: {
-    locale: 'en'
+  preferences: {
+    locale: 'en',
+    theme: 'github'
   }
  };
  save();

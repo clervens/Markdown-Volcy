@@ -2,14 +2,14 @@ var environment = storage.get('environment');
 var fs = require('fs');
 var path = require('path');
 var locales_folder = path.join(app_root, 'config', 'locales');
-var locale = storage.get('settings').locale;
+var locale = storage.get('preferences').locale;
 var data;
 
 readLocaleData(locale);
 
 function get_locale() {
   if (environment == 'development') {
-    locale = storage.get('settings').locale;
+    locale = storage.get('preferences').locale;
   }
   return locale;
 }
