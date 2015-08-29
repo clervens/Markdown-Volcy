@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title></title>
+    <title>Preferences</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="../assets/stylesheets/preferences.css">
     <link rel="stylesheet" type="text/css" href="../assets/stylesheets/github-md.css">
@@ -9,10 +9,38 @@
     <script type="text/javascript" src="../assets/javascripts/preferences.js"></script>
   </head>
   <body>
-    <div class="container" style="border: black solid 1px">
+    <div class="container" style="/*border: black solid 1px*/">
+      <form>
+        <table>
+          <tbody>
+            <tr>
+              <td>locale : </td>
+              <td>
+                <select name="locale" id="locale">
+                  <option value="en">English</option>
+                  <option value="fr">French</option>
+                </select>
+              </td>
+            </tr>
+            <tr></tr>
+            <tr>
+              <td>Preview Theme : </td>
+              <td>
+                <select name="theme" id="theme">
+                  <option value="github">GitHub</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input type="hidden" name="latex" value="false">
+              </td>
+              <td><label for="latex"><input type="checkbox" name="latex" id="latex" value="true"> Enable LaTeX</label></td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
     </div>
-    <script>$(function(){$('title').text(require(app_root+'/lib/i18n').t('app.preferences'));})</script>
     <script>console.log("We are using io.js %s and Electron %s.", process.version, process.versions['electron'])</script>
   </body>
 </html>
-
