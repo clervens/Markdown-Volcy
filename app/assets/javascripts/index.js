@@ -130,7 +130,7 @@ ipc.on('file-save', saveFile)
     prefs.openDevTools();
 })
 .on('print', function(){
-  remote.getCurrentWindow().webContents.printToPDF({}, function(error, data) {
+  remote.getCurrentWindow().webContents.printToPDF({printBackground: true}, function(error, data) {
     if (error) throw error;
     dialog.showSaveDialog(remote.getCurrentWindow(), {
         title: "Print to PDF",
