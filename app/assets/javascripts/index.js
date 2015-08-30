@@ -129,7 +129,9 @@ ipc.on('file-save', saveFile)
   if(storage.get('environment') == 'development')
     prefs.openDevTools();
 })
-.on('print', function(){
+.on('file.print', function(options){
+  if (!options.pdf)
+    return;
   remote.getCurrentWindow().webContents.printToPDF({printBackground: true}, function(error, data) {
     if (error) throw error;
     dialog.showSaveDialog(remote.getCurrentWindow(), {
