@@ -18,6 +18,8 @@ var template = function(app, BrowserWindow, mainWindow) {
         { type: "separator" },
         { label: i18n.t('file.save'), accelerator: "CmdOrCtrl+S", click: function(){send('file-save');} },
         { label: i18n.t('file.save_as'), accelerator: "CmdOrCtrl+Shift+S", click: function(){send('file-save-as', {save_as: true});} },
+        { type: "separator" },
+        { label: i18n.t('file.export_pdf'), accelerator: "CmdOrCtrl+alt+P", click: function(){send('file.print', {pdf: true});} },
         { type: "separator" }
         ,{ label: i18n.t('file.debug'), enabled: false, visible: debugModeOn},
         { label: i18n.t('file.reload'), accelerator: "CmdOrCtrl+R", click: function() { mainWindow.restart();}, visible: debugModeOn},

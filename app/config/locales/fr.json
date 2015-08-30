@@ -7,6 +7,20 @@
   "file.new": "Nouveau",
   "file.open": "Ouvrir",
   "file.close": "Fermer",
-
+  "file.save": "Enregistrer...",
+  "file.save_as": "Enregistrer sous...",
+  "file.export_pdf": "Publier en tant que PDF",
+  "file.debug": "Debug",
+  "file.reload": "Recharger",
+  "file.tests": "Tests Trigger",
+  "edit": "Édition",
+  "edit.undo": "Annuler",
+  "edit.redo": "Rétablir",
+  "edit.cut": "Couper",
+  "edit.copy": "Copier",
+  "edit.paste": "Coller",
+  "edit.select_all": "Sélectionner tout",
+  "view": "Vue",
+  "view.toggle": "Basculer l'aperçu",
   "help": "Help"
 }
