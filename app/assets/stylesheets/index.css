@@ -1,3 +1,4 @@
+@import url("themes/github-md.css");
 html {  height: 97%; }
 
 body, #input, #preview, .spliter { height: 100%; margin: 0; }

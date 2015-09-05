@@ -26,6 +26,7 @@ $(function(){
   editor = CodeMirror.fromTextArea($("#input")[0], {lineNumbers: false, lineWrapping: true, mode: 'markdown', autofocus: true});
   previewFrame = new Editor($("#input + .CodeMirror"), $("#preview .content"));
   $("#preview .content").data('editor', previewFrame);
+  $("#preview").addClass(storage.get('preferences').theme || 'default')
   var minWidth = 100;
 
   $(".pane-left").resizable({
