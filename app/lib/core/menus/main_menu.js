@@ -1,6 +1,6 @@
-var storage = require(__dirname+'/../storage/storage');
+var storage = require(__dirname+'/../../storage/storage');
 
-var template = function(app, BrowserWindow, mainWindow) {
+var template = function(app, BrowserWindow) {
   debugModeOn = (storage.get('environment') == "development")? true : false;
   this.send = function(msg, args) { BrowserWindow.getFocusedWindow().webContents.send(msg, args); };
   return [{
@@ -22,7 +22,7 @@ var template = function(app, BrowserWindow, mainWindow) {
         { label: i18n.t('file.export_pdf'), accelerator: "CmdOrCtrl+alt+P", click: function(){send('file.print', {pdf: true});} },
         { type: "separator" }
         ,{ label: i18n.t('file.debug'), enabled: false, visible: debugModeOn},
-        { label: i18n.t('file.reload'), accelerator: "CmdOrCtrl+R", click: function() { mainWindow.restart();}, visible: debugModeOn},
+        { label: i18n.t('file.reload'), accelerator: "CmdOrCtrl+R", click: function() { BrowserWindow.getFocusedWindow().restart();}, visible: debugModeOn},
         { label: i18n.t('file.tests'), accelerator: "CmdOrCtrl+T", click: function() { send('test');}, visible: debugModeOn}]
     }, {
     label: i18n.t('edit'),
