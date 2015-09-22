@@ -1,23 +1,25 @@
 var storage = require(__dirname+'/../../storage/storage');
 
-var template = function(app, BrowserWindow) {
+var template = function(markdownEditorWindows, BrowserWindow) {
   debugModeOn = (storage.get('environment') == "development")? true : false;
-  this.send = function(msg, args) { BrowserWindow.getFocusedWindow().webContents.send(msg, args); };
+  this.send = function(event, args) { 
+    markdownEditorWindows.menuAction(event, args);
+  };
   return [{
     label: i18n.t('app'),
     submenu: [
       { label: i18n.t('app.about'), selector: "orderFrontStandardAboutPanel:" },
       { label: i18n.t('app.preferences'), enabled: true, accelerator: "CmdOrCtrl+,", click: function(){send('app.preferences')} },
       { type: "separator" },
-      { label: i18n.t('app.quit'), accelerator: "CmdOrCtrl+Q", click: function() { app.quit(); }}]
+      { label: i18n.t('app.quit'), accelerator: "CmdOrCtrl+Q", click: function() { markdownEditorWindows.app.quit(); }}]
     }, {
       label: i18n.t('file'), submenu: [
-        { label: i18n.t('file.new'), accelerator: "CmdOrCtrl+N", click: function() {send('file-new');} },
-        { label: i18n.t('file.open'), accelerator: "CmdOrCtrl+O", click: function() {send('file-open');} },
-        { label: i18n.t('file.close'), accelerator: "CmdOrCtrl+W", click: function() {send('file-close');} },
+        { label: i18n.t('file.new'), accelerator: "CmdOrCtrl+N", click: function() {send('file.new');} },
+        { label: i18n.t('file.open'), accelerator: "CmdOrCtrl+O", click: function() {send('file.open');} },
+        { label: i18n.t('file.close'), accelerator: "CmdOrCtrl+W", click: function() {send('file.close');} },
         { type: "separator" },
-        { label: i18n.t('file.save'), accelerator: "CmdOrCtrl+S", click: function(){send('file-save');} },
-        { label: i18n.t('file.save_as'), accelerator: "CmdOrCtrl+Shift+S", click: function(){send('file-save-as', {save_as: true});} },
+        { label: i18n.t('file.save'), accelerator: "CmdOrCtrl+S", click: function(){send('file.save');} },
+        { label: i18n.t('file.save_as'), accelerator: "CmdOrCtrl+Shift+S", click: function(){send('file.save-as', {save_as: true});} },
         { type: "separator" },
         { label: i18n.t('file.export_pdf'), accelerator: "CmdOrCtrl+alt+P", click: function(){send('file.print', {pdf: true});} },
         { type: "separator" }
@@ -36,7 +38,7 @@ var template = function(app, BrowserWindow) {
       { label: i18n.t('edit.select_all'), accelerator: "CmdOrCtrl+A", selector: "selectAll:" }]
     }, {
       label: i18n.t('view'), submenu: [
-        { label: i18n.t('view.toggle'), accelerator: "CmdOrCtrl+Shift+P", click: function(){send('view-toggle-preview')} }
+        { label: i18n.t('view.toggle'), accelerator: "CmdOrCtrl+Shift+P", click: function(){send('view.toggle-preview')} }
       ]
     },
     // {

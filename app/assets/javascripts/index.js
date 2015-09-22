@@ -73,7 +73,7 @@ function saveFile(args) {
     }
   };
 
-  var file = sessionStorage.getItem('file');
+  var file = JSON.parse(sessionStorage.getItem('file'));
   if(!file || args.save_as) {
     dialog.showSaveDialog(remote.getCurrentWindow(), {
       title: "save markdown",
@@ -94,59 +94,21 @@ function initFileNameFromPath(filePath) {
   sessionStorage.setItem('file', JSON.stringify({path: filePath}));
 }
 
-ipc.on('file-save', saveFile)
-.on('file-save-as', saveFile)
-.on('file-new', function(){tbw = new BrowserWindow({width: 800, height: 600});tbw.loadUrl('file://'+ __dirname + '/index.html');})
-.on('file-open', function(){ dialog.showOpenDialog(remote.getCurrentWindow(), {
-  title: "Markdown-Volcy Open File",
-  filters: [ { name: 'Markdown', extensions: ['markdown','mdown','mkdn','md','mkd','mdwn','mdtxt','mdtext','text'] } ],
-  properties: ['openFile']
-}, function(filePath){
+ipc.on('file.save', saveFile)
+.on('file.save-as', saveFile)
+.on('file.open', function(filePath){ 
   if (filePath) {
-    fs.readFile(filePath[0], {encoding: 'utf-8'}, function(err, data){
-      console.log(filePath[0]);
+    fs.readFile(filePath, {encoding: 'utf-8'}, function(err, data){
       if (!err) {
         editor.setValue(data);
         previewFrame.update();
-        initFileNameFromPath(filePath[0]);
+        initFileNameFromPath(filePath);
       } else {
         console.log(err);
       }
     });
   }
-})})
-.on('file-close', function(){remote.getCurrentWindow().close()})
-.on('view-toggle-preview', function(){
+})
+.on('view.toggle-preview', function(){
   resizePane(($(".pane-right").width() > 0)? 100 : 50);
 })
-.on('app.preferences', function(){
-  prefs = new BrowserWindow({
-    width: 400,
-    height: 300,
-    resizable: (storage.get('environment') == 'development'),
-    frame: true
-  });
-  prefs.loadUrl('file://'+__dirname+'/preferences.html');
-  if(storage.get('environment') == 'development')
-    prefs.openDevTools();
-})
-.on('file.print', function(options){
-  if (!options.pdf)
-    return;
-  remote.getCurrentWindow().webContents.printToPDF({printBackground: true}, function(error, data) {
-    if (error) throw error;
-    dialog.showSaveDialog(remote.getCurrentWindow(), {
-        title: "Print to PDF",
-        filters: [
-          { name: 'PDF', extensions: ['pdf'] }
-        ]
-      }, function(filePath){
-        fs.writeFile(filePath, data, function(error) {
-          if (error)
-            throw error;
-          console.log("Write PDF successfully.");
-      });
-    });
-  });
-})
-.on('test', function(){remote.getCurrentWindow().loadUrl('file://'+ __dirname + '/test.html');})
