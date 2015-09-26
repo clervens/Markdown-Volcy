@@ -8,6 +8,7 @@ class MarkdownEditorWindows
   constructor: (app) ->
     @browsers = []
     @app = app
+    @prefs = null
     @initMenu app
     @newEditor()
   initMenu: (app) ->
@@ -86,14 +87,19 @@ class MarkdownEditorWindows
           browser.close()
         break
       when 'app.preferences'
-        prefs = new BrowserWindow
+        console.log @prefs
+        return if @prefs isnt null
+        @prefs = new BrowserWindow
           width: 400
           height: 300
           resizable: (Storage.get('environment') == 'development')
           frame: true
-        prefs.loadUrl "file://#{process.cwd()}/app/views/preferences.html"
+          "skip-taskbar": true
+        @prefs.loadUrl "file://#{process.cwd()}/app/views/preferences.html"
         if(Storage.get('environment') == 'development')
-          prefs.openDevTools();    
+          @prefs.openDevTools();    
+        @prefs.on 'closed', =>
+          @prefs = null
       when 'test'
         browser = BrowserWindow.getFocusedWindow()
         if browser
