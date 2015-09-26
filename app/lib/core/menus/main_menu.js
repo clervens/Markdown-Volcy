@@ -25,6 +25,7 @@ var template = function(markdownEditorWindows, BrowserWindow) {
         { type: "separator" }
         ,{ label: i18n.t('file.debug'), enabled: false, visible: debugModeOn},
         { label: i18n.t('file.reload'), accelerator: "CmdOrCtrl+R", click: function() { BrowserWindow.getFocusedWindow().restart();}, visible: debugModeOn},
+        { label: i18n.t('file.dev-tools'), accelerator: "CmdOrCtrl+Alt+I", click: function() { BrowserWindow.getFocusedWindow().toggleDevTools();}, visible: debugModeOn},
         { label: i18n.t('file.tests'), accelerator: "CmdOrCtrl+T", click: function() { send('test');}, visible: debugModeOn}]
     }, {
     label: i18n.t('edit'),

@@ -1,6 +1,7 @@
 global.app_root = __dirname+'/app';
 global.storage = require(app_root+'/lib/storage/storage');
 global.i18n = require(app_root+'/lib/i18n');
+global.PWD = process.env.PWD = require('path').dirname(require.main.filename);
 
 var app = require('app');
 var ipc = require('ipc');

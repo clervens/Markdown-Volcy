@@ -1,4 +1,4 @@
-Storage = require "#{process.cwd()}/app/lib/storage/storage"
+Storage = require "#{process.env.PWD}/app/lib/storage/storage"
 BrowserWindow = require 'browser-window'
 Menu = require 'menu'
 Dialog = require 'dialog'
@@ -12,7 +12,7 @@ class MarkdownEditorWindows
     @initMenu app
     @newEditor()
   initMenu: (app) ->
-    template = require("#{process.cwd()}/app/lib/core/menus/main_menu")
+    template = require("#{process.env.PWD}/app/lib/core/menus/main_menu")
     Menu.setApplicationMenu(Menu.buildFromTemplate(template(@, BrowserWindow)))
     return
   newEditor: (file) ->
@@ -23,7 +23,7 @@ class MarkdownEditorWindows
       options.width = Math.min(options.width, @browsers[@browsers.length-1].getBounds().width)
       options.height = Math.min(options.height, @browsers[@browsers.length-1].getBounds().height)
     browser = new BrowserWindow(options)
-    browser.loadUrl "file://#{process.cwd()}/app/views/index.html"
+    browser.loadUrl "file://#{process.env.PWD}/app/views/index.html"
     browser.on 'closed', =>
       index = @browsers.indexOf(browser)
       if(index isnt -1)
@@ -95,7 +95,7 @@ class MarkdownEditorWindows
           resizable: (Storage.get('environment') == 'development')
           frame: true
           "skip-taskbar": true
-        @prefs.loadUrl "file://#{process.cwd()}/app/views/preferences.html"
+        @prefs.loadUrl "file://#{process.env.PWD}/app/views/preferences.html"
         if(Storage.get('environment') == 'development')
           @prefs.openDevTools();    
         @prefs.on 'closed', =>
@@ -103,6 +103,6 @@ class MarkdownEditorWindows
       when 'test'
         browser = BrowserWindow.getFocusedWindow()
         if browser
-          browser.loadUrl "file://#{process.cwd()}/app/views/test.html"
+          browser.loadUrl "file://#{process.env.PWD}/app/views/test.html"
     return
 module.exports = MarkdownEditorWindows
