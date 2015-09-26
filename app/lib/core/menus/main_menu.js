@@ -8,7 +8,7 @@ var template = function(markdownEditorWindows, BrowserWindow) {
   return [{
     label: i18n.t('app'),
     submenu: [
-      { label: i18n.t('app.about'), selector: "orderFrontStandardAboutPanel:" },
+      { label: i18n.t('app.about'), role: "about" },
       { label: i18n.t('app.preferences'), enabled: true, accelerator: "CmdOrCtrl+,", click: function(){send('app.preferences')} },
       { type: "separator" },
       { label: i18n.t('app.quit'), accelerator: "CmdOrCtrl+Q", click: function() { markdownEditorWindows.app.quit(); }}]
@@ -29,13 +29,13 @@ var template = function(markdownEditorWindows, BrowserWindow) {
     }, {
     label: i18n.t('edit'),
     submenu: [
-      { label: i18n.t('edit.undo'), accelerator: "CmdOrCtrl+Z", selector: "undo:" },
-      { label: i18n.t('edit.redo'), accelerator: "CmdOrCtrl+Shift+Z", selector: "redo:" },
+      { label: i18n.t('edit.undo'), accelerator: "CmdOrCtrl+Z", role: "undo" },
+      { label: i18n.t('edit.redo'), accelerator: "CmdOrCtrl+Shift+Z", role: "redo" },
       { type: "separator" },
-      { label: i18n.t('edit.cut'), accelerator: "CmdOrCtrl+X", selector: "cut:" },
-      { label: i18n.t('edit.copy'), accelerator: "CmdOrCtrl+C", selector: "copy:" },
-      { label: i18n.t('edit.paste'), accelerator: "CmdOrCtrl+V", selector: "paste:" },
-      { label: i18n.t('edit.select_all'), accelerator: "CmdOrCtrl+A", selector: "selectAll:" }]
+      { label: i18n.t('edit.cut'), accelerator: "CmdOrCtrl+X", role: "cut" },
+      { label: i18n.t('edit.copy'), accelerator: "CmdOrCtrl+C", role: "copy" },
+      { label: i18n.t('edit.paste'), accelerator: "CmdOrCtrl+V", role: "paste" },
+      { label: i18n.t('edit.select_all'), accelerator: "CmdOrCtrl+A", role: "selectAll" }]
     }, {
       label: i18n.t('view'), submenu: [
         { label: i18n.t('view.toggle'), accelerator: "CmdOrCtrl+Shift+P", click: function(){send('view.toggle-preview')} }
@@ -47,7 +47,7 @@ var template = function(markdownEditorWindows, BrowserWindow) {
     //   label: "Window", submenu: []
     // },
     {
-      label: i18n.t('help'), sublabel: 'Help', submenu: []
+      label: i18n.t('help'), role: 'help', submenu: []
   }];
 };
 
