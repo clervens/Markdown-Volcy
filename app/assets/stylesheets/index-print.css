@@ -1,3 +1,11 @@
-html, body {height: initial;}
-.resizable.pane-left, footer {display: none;}
-.resizable.pane-right {width: 100% !important;}
+@media print {
+  html, body {height: initial;}
+  .resizable.pane-left, footer {display: none;}
+  .resize-wrap .resizable.pane-right {
+    width: 100%;
+    float: none;
+  }
+  .resize-wrap .resizable.pane-right #preview .content {
+    padding: 0;
+  }
+}

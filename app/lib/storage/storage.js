@@ -9,16 +9,16 @@ function load() {
  return;
  } 
  
- if (!fs.existsSync(dataFilePath)) {
- data = {
-  environment: "production",
-  preferences: {
-    locale: 'en',
-    theme: 'github'
-  }
- };
- save();
- return;
+if (!fs.existsSync(dataFilePath)) {
+  data = {
+    environment: "production",
+    preferences: {
+      locale: 'en',
+      theme: 'github'
+    }
+  };
+  save();
+  return;
  }
  
  data = JSON.parse(fs.readFileSync(dataFilePath, 'utf-8')); 
