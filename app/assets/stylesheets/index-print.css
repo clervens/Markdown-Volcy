@@ -5,6 +5,9 @@
     width: 100%;
     float: none;
   }
+  .resize-wrap .resizable.pane-right #preview {
+    overflow-y: visible;
+  }
   .resize-wrap .resizable.pane-right #preview .content {
     padding: 0;
   }
