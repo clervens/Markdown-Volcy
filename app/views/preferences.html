@@ -13,17 +13,17 @@
         <table>
           <tbody>
             <tr>
-              <td>locale : </td>
+              <td><label for="locale"><span data-label="pref.lblLocale"></span> : </label></td>
               <td>
                 <select name="locale" id="locale">
-                  <option value="en">English</option>
-                  <option value="fr">French</option>
+                  <option value="en" data-label="pref.en"></option>
+                  <option value="fr" data-label="pref.fr"></option>
                 </select>
               </td>
             </tr>
             <tr></tr>
             <tr>
-              <td>Preview Theme : </td>
+              <td><label for="theme"><span data-label="pref.lblPreviewTheme"></span> : </label></td>
               <td>
                 <select name="theme" id="theme">
                   <option value="default">Default</option>
@@ -35,7 +35,11 @@
               <td>
                 <input type="hidden" name="latex" value="false">
               </td>
-              <td><label for="latex"><input type="checkbox" name="latex" id="latex" value="true"> Enable LaTeX</label></td>
+              <td>
+                <label for="latex">
+                  <input type="checkbox" name="latex" id="latex" value="true"> <span data-label="pref.lblEnableLatex"></span>
+                </label>
+              </td>
             </tr>
           </tbody>
         </table>

@@ -1,5 +1,5 @@
 {
-  "app.name": "Application",
+  "app": "Application",
   "app.preferences": "Preferences",
   "app.about": "About Application",
   "app.quit": "Quit",
@@ -22,5 +22,10 @@
   "edit.select_all": "Select All",
   "view": "View",
   "view.toggle": "Toggle Preview",
-  "help": "Help"
+  "help": "Help",
+  "pref.lblLocale": "language",
+  "pref.fr": "french",
+  "pref.en": "english",
+  "pref.lblPreviewTheme": "preview theme",
+  "pref.lblEnableLatex": "enable LaTex"
 }

@@ -6,7 +6,7 @@ body {
 
 .container {
   width: 300px;
-  margin: 10px auto;
+  margin: 30px auto;
 }
 table {
   width: 100%;
@@ -20,6 +20,9 @@ table tr td {
 table tr td + td {
   text-align: left;
   width: 50%;
+}
+table tr > td:first-child {
+  text-transform: capitalize;
 }
 
 input[type=text], select {

@@ -27,4 +27,8 @@ function init_form_fields_value() {
   $("#locale").val(preferences.locale);
   $("#theme").val(preferences.theme);
   $('#latex').prop('checked', (preferences.latex == "true"));
+  $("[data-label]").each(function(e){
+    console.log(e);
+    $(this).text(i18n.t($(this).data('label')));
+  })
 }

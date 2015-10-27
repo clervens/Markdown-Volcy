@@ -95,6 +95,9 @@ class MarkdownEditorWindows
           resizable: (Storage.get('environment') == 'development')
           frame: true
           "skip-taskbar": true
+          "title-bar-style": "hidden"
+        @prefs.setMenuBarVisibility(false);
+        @prefs.setAutoHideMenuBar(true);
         @prefs.loadUrl "file://#{process.env.PWD}/app/views/preferences.html"
         if(Storage.get('environment') == 'development')
           @prefs.openDevTools();    

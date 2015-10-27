@@ -2,7 +2,7 @@
   "name": "Markdown-Volcy",
   "description": "A basic markdown editor. [Still in development]",
   "author": "Volcy, Clervens <clervens.volcy@gmail.com> (http://cvolcy.com/)",
-  "version": "0.0.2",
+  "version": "0.1.3",
   "licenses": [
     {
       "type": "Apache-2.0",
