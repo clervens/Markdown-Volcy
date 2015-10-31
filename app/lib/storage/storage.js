@@ -14,7 +14,7 @@ if (!fs.existsSync(dataFilePath)) {
     environment: "production",
     preferences: {
       locale: 'en',
-      theme: 'github'
+      theme: 'default'
     }
   };
   save();

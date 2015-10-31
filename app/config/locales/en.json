@@ -27,5 +27,8 @@
   "pref.fr": "french",
   "pref.en": "english",
   "pref.lblPreviewTheme": "preview theme",
-  "pref.lblEnableLatex": "enable LaTex"
+  "pref.lblEnableLatex": "enable LaTex",
+  "window": "Window",
+  "window.minimize": "Minimize",
+  "window.close": "Close"
 }
