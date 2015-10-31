@@ -96,6 +96,7 @@ class MarkdownEditorWindows
           frame: true
           "skip-taskbar": true
           "title-bar-style": "hidden"
+          "always-on-top": true
         @prefs.setMenuBarVisibility(false);
         @prefs.setAutoHideMenuBar(true);
         @prefs.loadUrl "file://#{process.env.PWD}/app/views/preferences.html"
